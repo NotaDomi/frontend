@@ -11,11 +11,11 @@ export default function Navbar ({isLogged,setLogged,loggedUser,setLoggedUser})  
   axios.defaults.withCredentials=true
 
   const logoutHandler = ()=>{
-    axios.post('/auth/logout',{})
+    axios.post('https://notagram-app-frontend.onrender.com/auth/logout',{})
     .then(response=>{
       alert(response.data.message)
         //get per effettuare il check sui cookie settati
-        axios.get('/auth/check')
+        axios.get('https://notagram-app-frontend.onrender.com/auth/check')
           .then((response)=>{
           console.log(response)
           setLogged(response.data.isLogged)
@@ -24,7 +24,7 @@ export default function Navbar ({isLogged,setLogged,loggedUser,setLoggedUser})  
         navigate('/login');  
     }).catch(error=>{
       alert(error.response.data.message)
-      axios.get('/auth/check').then( (response)=>{
+      axios.get('https://notagram-app-frontend.onrender.com/auth/check').then( (response)=>{
           console.log(response)
           setLogged(error.response.data.isLogged)
           setLoggedUser(error.response.data.user)
