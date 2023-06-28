@@ -10,7 +10,7 @@ export default function User ({ username, myId, setLoggedUser, setLogged ,isButt
 
     const addFriend = () => {
         setIsButtonDisabled(true)
-        axios.post('https://notagram-app-frontend.onrender.com/api/users/addFriend?_method=PUT', {
+        axios.post('https://backend-production-952b.up.railway.app/api/users/addFriend?_method=PUT', {
             id: myId,
             username: username
         }).then( res => {

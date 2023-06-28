@@ -16,12 +16,12 @@ export default function Login ({setLogged,setLoggedUser,setIsButtonDisabled,isBu
   const handleSubmit = (e) => {
     e.preventDefault();
     setIsButtonDisabled(true)
-    axios.post( 'https://notagram-app-frontend.onrender.com/auth/login', {
+    axios.post( 'https://backend-production-952b.up.railway.app/auth/login', {
         username: signInfo.username,
         password: signInfo.password
       }).then(r => {
         alert(r.data.message)
-        axios.get('https://notagram-app-frontend.onrender.com/auth/check')
+        axios.get('https://backend-production-952b.up.railway.app/auth/check')
         .then((response)=>{
         console.log(response)
         setLogged(response.data.isLogged)

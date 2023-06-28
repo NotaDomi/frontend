@@ -17,13 +17,13 @@ export default function Chats({isLogged,setLogged,loggedUser,setLoggedUser,isBut
     axios.defaults.withCredentials=true
 
     useEffect( () => {
-        axios.get('https://notagram-app-frontend.onrender.com/api/users/allFriends').then(res => {
+        axios.get('https://backend-production-952b.up.railway.app/api/users/allFriends').then(res => {
             
             setFriends(res.data.friends);
             setLoading(false)
         }).catch(error=>{
           alert(error.response.data.message)
-          axios.get('https://notagram-app-frontend.onrender.com/auth/check')
+          axios.get('https://backend-production-952b.up.railway.app/auth/check')
               .then( (response)=>{
               console.log(response)
               setLogged(error.response.data.isLogged)

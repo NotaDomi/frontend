@@ -10,7 +10,7 @@ export default function Friend({username, myId, setLogged, loggedUser, setLogged
 
   const removeFriend = () => {
     setIsButtonDisabled(true)
-    axios.post('https://notagram-app-frontend.onrender.com/api/users/removeFriend?_method=PUT', {
+    axios.post('https://backend-production-952b.up.railway.app/api/users/removeFriend?_method=PUT', {
         id: myId,
         username: username
     }).then( res => {
@@ -20,7 +20,7 @@ export default function Friend({username, myId, setLogged, loggedUser, setLogged
       setIsButtonDisabled(false)
       }).catch(error=>{
       alert(error.response.data.message)
-      axios.get('https://notagram-app-frontend.onrender.com/auth/check')
+      axios.get('https://backend-production-952b.up.railway.app/auth/check')
           .then((response)=>{
           console.log(response)
           setLogged(error.response.data.isLogged)
@@ -33,14 +33,14 @@ export default function Friend({username, myId, setLogged, loggedUser, setLogged
 }
 
 const apriChat = () => {
-  axios.get(`https://notagram-app-frontend.onrender.com/api/messages/getMessages/${loggedUser.id}/${myId}`).then( res => {
+  axios.get(`https://backend-production-952b.up.railway.app/api/messages/getMessages/${loggedUser.id}/${myId}`).then( res => {
     
     setMessages(res.data);
     setClick(true);
     setFriend({user:username,id:myId})
     }).catch(error=>{
     alert(error.response.data.message)
-    axios.get('https://notagram-app-frontend.onrender.com/auth/check')
+    axios.get('https://backend-production-952b.up.railway.app/auth/check')
         .then((response)=>{
         console.log(response)
         setLogged(error.response.data.isLogged)
