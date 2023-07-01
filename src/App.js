@@ -37,7 +37,7 @@ Appena caricata l'app viene verificato se la sessione è ancora valida, e setta 
 in base alle informazioni correnti
 */
   useEffect( () => { 
-    axios.get('https://backend-production-952b.up.railway.app/auth/check').then((response)=>{
+    axios.get('https://www.api.notagram.live/auth/check').then((response)=>{
       console.log(response)
       setLogged(response.data.isLogged)
       setLoggedUser(response.data.user)
